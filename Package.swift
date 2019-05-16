@@ -9,6 +9,8 @@ let package = Package(
     targets: [
         .target(
             name: "blescan",
-            dependencies: []),
+            dependencies: [],
+            path: "Sources"
+        ),
     ]
 )

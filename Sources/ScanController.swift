@@ -27,7 +27,11 @@ class ScanController: NSObject, ScanManagerDelegate {
         guard discoveredPeripheralIdentifiers.contains(
             periperal.identifier) == false else { return }
         discoveredPeripheralIdentifiers.append(periperal.identifier)
-        print("\(periperal.identifier) \(periperal.name ?? "(unknown)")")
+        let identifier = "\(periperal.identifier.uuidString, .format(width: 36))"
+        let rssi = "\(RSSI, .format(alignment: .right, width: 6))dB"
+        let name = "\(periperal.name ?? "(unknown)")"
+        print("\(identifier)\(rssi)   \(name)")
+    
     }
 
     func managerReady(_ manager: ScanManager) {
